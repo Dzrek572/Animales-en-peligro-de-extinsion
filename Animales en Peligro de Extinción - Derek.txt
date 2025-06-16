@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animales en Peligro de Extinción</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; font-family:'Segoe UI',sans-serif; }
+    body { background:#f4f6f8; color:#333; line-height:1.7; }
+    header { background:#1f2a30; overflow:hidden; height:60px; position:relative; }
+    .scrolling-text { position:absolute; white-space:nowrap; animation:moveLR 15s linear infinite; font-size:1.5rem; color:#fff; font-weight:bold; top:15px; }
+    @keyframes moveLR { 0%{ left:100%; } 100%{ left:-100%; } }
+
+    nav { background:#3e5c60; padding:12px; text-align:center; }
+    nav a { color:#fff; margin:0 15px; text-decoration:none; font-weight:bold; transition:color .3s; }
+    nav a:hover { color:#ffdd57; }
+
+    section { padding:40px 20px; max-width:1000px; margin:40px auto; position:relative; overflow:hidden; }
+    section::before { content:''; position:absolute; width:100px; height:100px; background:rgba(46,125,50,.1); top:-20px; right:-20px; border-radius:50%; }
+    h2 { color:#2e7d32; margin-bottom:15px; font-size:28px; border-left:5px solid #2e7d32; padding-left:10px; }
+    p, ul { margin-bottom:15px; }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+      color: #333;
+      line-height: 1.7;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    body.dark-mode {
+      background: #121212;
+      color: #f0f0f0;
+    }
+
+    header {
+      background-color: #2f4f4f;
+      overflow: hidden;
+      height: 60px;
+      position: relative;
+    }
+
+    .scrolling-text {
+      position: absolute;
+      white-space: nowrap;
+      animation: moveLeftRight 15s linear infinite;
+      font-size: 1.5rem;
+      color: white;
+      font-weight: bold;
+      top: 15px;
+    }
+
+    @keyframes moveLeftRight {
+      0% { left: 100%; }
+      100% { left: -100%; }
+    }
+
+    nav {
+      background-color: #6a8e7f;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 50px 25px;
+      max-width: 1100px;
+      margin: auto;
+      margin-top: 30px;
+      border-left: 8px solid #6a8e7f;
+      border-radius: 10px;
+      background-color: rgba(255,255,255,0.9);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      transition: background 0.5s, color 0.5s;
+    }
+
+    body.dark-mode section {
+      background-color: rgba(30, 30, 30, 0.95);
+    }
+
+    h2 {
+      color: #2e7d32;
+      margin-bottom: 20px;
+      font-size: 30px;
+    }
+
+    .imagenes {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .imagenes img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border:4px solid #2e7d32;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.4s;
+    }
+
+    .imagenes img:hover {
+      transform:scale(1.05);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #256428;
+    }
+
+    footer {
+      background-color: #263238;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 25px;
+      border-collapse: collapse;
+    }
+
+    table th,
+    table td {
+      border: 1px solid #888;
+      padding: 10px;
+      text-align: center;
+    }
+
+    table th {
+      background-color: #4caf50;
+      color: white;
+    }
+
+
+    form { display:flex; flex-direction:column; gap:15px; max-width:400px; margin:auto; }
+    input[type="text"], input[type="email"], input[type="submit"] { padding:12px; border-radius:8px; }
+    input[type="text"], input[type="email"] { border:1px solid #bbb; }
+    input[type="submit"] { border:none; background:#2e7d32; color:#fff; cursor:pointer; transition:background .3s; }
+    input[type="submit"]:hover { background:#1b4d28; }
+
+    footer { background:#1f2a30; color:#fff; text-align:center; padding:20px; }
+
+    audio, video { display:block; margin:20px auto; max-width:100%; border:3px solid #2e7d32; border-radius:10px; }
+
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modal > div {
+      background: white;
+      padding: 30px;
+      max-width: 600px;
+      border-radius: 12px;
+      position: relative;
+      color: #222;
+    }
+
+    body.dark-mode #modal > div {
+      background: #1e1e1e;
+      color: white;
+    }
+
+    #modoOscuroBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #444;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 2000;
+    }
+
+    #modoOscuroBtn:hover {
+      background: #666;
+    }
+
+    .marquesina {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background-color: #eee;
+      padding: 20px;
+      margin-top: 40px;
+      border-left: 5px solid #4caf50;
+      font-style: italic;
+    }
+
+    .marquesina img {
+      width: 80px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="scrolling-text">Derek Arturo Ávila Gonzáles, Jorge Eduardo Castillo González, Luis Daniel Juárez - 2IM12</div>
+  </header>
+
+  <nav>
+    <a href="#intro">Inicio</a>
+    <a href="#Definiciones">Definiciones</a>
+    <a href="#Clasificación según su nivel de amenaza (UICN)">Clasificación según su nivel de amenaza (UICN)</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="intro">
+    <h2>¿Qué son los animales en peligro de extinción?</h2>
+    <p>Los animales en peligro de extinción son aquellas especies cuya supervivencia está amenazada, ya sea por causas naturales o, más comúnmente, por actividades humanas. Están catalogados así porque sus poblaciones han disminuido drásticamente o están en declive continuo, lo que podría llevar a su desaparición total en un futuro cercano si no se toman medidas para protegerlos.</p>
+  </section>
+
+  <section id="Definiciones">
+    <h2>🔍 ¿Qué significa “en peligro de extinción”?</h2>
+    <p>El término hace referencia a especies que, según criterios científicos, enfrentan un alto riesgo de extinguirse en estado silvestre. Este estado es evaluado y clasificado por organismos como la Unión Internacional para la Conservación de la Naturaleza (UICN), que publica la "Lista Roja de Especies Amenazadas".</p>
+  </section>
+
+  <section id="Clasificación según su nivel de amenaza (UICN)">
+    <h2>⚠️ Clasificación según su nivel de amenaza (UICN)</h2>
+    <ul>
+      <li>Preocupación menor (LC): No están en peligro, pero se siguen monitoreando.</li>
+      <li>Casi amenazada (NT): Podrían estar en peligro pronto.</li>
+      <li>Vulnerable (VU): Riesgo alto de extinción en el mediano plazo.</li>
+      <li>En peligro (EN): Riesgo muy alto de extinción.</li>
+      <li>En peligro crítico (CR): Riesgo extremadamente alto e inminente.</li>
+      <li>Extinto en estado silvestre (EW): Solo sobreviven en cautiverio.</li>
+      <li>Extinto (EX): No queda ningún individuo vivo.</li>
+    </ul>
+  </section>
+
+  <section id="especies">
+    <h2>Especies afectadas</h2>
+    <ul>
+      <li>Oso polar</li>
+      <li>Ajolote</li>
+      <li>Jaguar</li>
+    </ul>
+  </section>
+
+  <section id="galeria">
+    <h2>Galería de imágenes</h2>
+    <div class="imagenes">
+      <img src="oso.jpg" alt="Oso Polar" onclick="mostrarInfo('oso')">
+      <img src="ajolote.jpg" alt="Ajolote" onclick="mostrarInfo('ajolote')">
+      <img src="jaguar.jpg" alt="Jaguar" onclick="mostrarInfo('jaguar')">
+    </div>
+
+    <table>
+      <tr>
+        <th>Especie</th>
+        <th>Región</th>
+        <th>Estado actual</th>
+      </tr>
+      <tr>
+        <td>Tigre de Bengala</td>
+        <td>Asia (India, Bangladesh)</td>
+        <td>En peligro</td>
+      </tr>
+      <tr>
+        <td>Vaquita marina</td>		
+        <td>México (Golfo de California)</td>
+        <td>En peligro crítico</td>
+      </tr>
+      <tr>
+        <td>Rinoceronte de Java</td>		
+        <td>Sudeste asiático</td>
+        <td>En peligro crítico</td>
+      </tr>
+      <tr>
+        <td>Orangután de Borneo</td>		
+        <td>Indonesia, Malasia</td>
+        <td>En peligro</td>
+      </tr>
+      <tr>
+        <td>Axolote</td>		
+        <td>México (Xochimilco)</td>
+        <td>En peligro crítico</td>
+      </tr>
+      <tr>
+        <td>Oso polar</td>				
+        <td>Regiones árticas</td>
+        <td>Vulnerable</td>
+      </tr>
+    </table>
+    <video controls>
+      <source src="video.mp4" type="video/mp4">
+      Tu navegador no soporta video.
+    </video>
+    <audio controls>
+      <source src="audio.mp3" type="audio/mp3">
+      Tu navegador no soporta audio.
+    </audio>
+  </section>
+
+  <section>
+    <div class="marquesina">
+      <img src="goodall.jpg" alt="Jane Goodall">
+      <div>
+        <p>"Lo que haces marca una diferencia, y tienes que decidir qué tipo de diferencia quieres hacer."</p>
+        <strong>- Jane Goodall</strong>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <h2>Contáctanos</h2>
+    <form>
+      <input type="text" placeholder="Tu nombre" required />
+      <input type="email" placeholder="Tu correo electrónico" required />
+      <input type="submit" value="Enviar" />
+    </form>
+  </section>
+
+  <section>
+    <h2>Enlaces oficiales</h2>
+    <ul>
+      <li><a href="https://www.nationalgeographicla.com" target="_blank">National Geographic en Español</a></li>
+      <li><a href="https://www.wwf.org.mx/" target="_blank">WWF México</a></li>
+      <li><a href="https://www.iucnredlist.org/es" target="_blank">Lista Roja UICN</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    © Derek Ávila - Todos los derechos reservados
+  </footer>
+
+  <div id="modal">
+    <div>
+      <span onclick="cerrarModal()" style="position:absolute;top:10px;right:15px;font-size:24px;cursor:pointer;">&times;</span>
+      <div id="contenidoModal"></div>
+    </div>
+  </div>
+
+  <button id="modoOscuroBtn" onclick="toggleModoOscuro()">🌓 Modo Oscuro</button>
+
+  <script>
+    function mostrarInfo(animal) {
+      let contenido = "";
+      if (animal === 'oso') {
+        contenido = `<h3>Oso Polar</h3><p>El oso polar vive en el Ártico y sufre por el derretimiento del hielo debido al cambio climático.</p>`;
+      } else if (animal === 'ajolote') {
+        contenido = `<h3>Ajolote</h3><p>Animal anfibio mexicano famoso por su capacidad de regeneración, vive solo en Xochimilco.</p>`;
+      } else if (animal === 'jaguar') {
+        contenido = `<h3>Jaguar</h3><p>El felino más grande de América, está amenazado por la deforestación y la caza.</p>`;
+      }
+      document.getElementById('contenidoModal').innerHTML = contenido;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function cerrarModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    function toggleModoOscuro() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
